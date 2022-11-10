@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/xmas-cards/static/css/main.073c9b0a.css",
-    "main.js": "/xmas-cards/static/js/main.28674233.js",
+    "main.js": "/xmas-cards/static/js/main.af9a884f.js",
     "static/js/787.b24f7f7f.chunk.js": "/xmas-cards/static/js/787.b24f7f7f.chunk.js",
     "index.html": "/xmas-cards/index.html",
     "main.073c9b0a.css.map": "/xmas-cards/static/css/main.073c9b0a.css.map",
-    "main.28674233.js.map": "/xmas-cards/static/js/main.28674233.js.map",
+    "main.af9a884f.js.map": "/xmas-cards/static/js/main.af9a884f.js.map",
     "787.b24f7f7f.chunk.js.map": "/xmas-cards/static/js/787.b24f7f7f.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.073c9b0a.css",
-    "static/js/main.28674233.js"
+    "static/js/main.af9a884f.js"
   ]
 }
