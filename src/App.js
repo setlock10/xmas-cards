@@ -10,10 +10,19 @@ import NavBar from './NavBar';
 
 function App() {
   return (
-    <BrowserRouter>
-      <div className="App">
-      </div>
-    </BrowserRouter>
+    <div className="App">
+      <BrowserRouter>
+        <NavBar/>
+          <Switch>
+            <Route exact path="/xmas-cards">
+              <Greeting/>
+            </Route>
+            <Route exact path="/xmas-cards/cardlist">
+              <CardList/>
+            </Route>
+          </Switch>
+      </BrowserRouter>
+    </div>
   );
 }
 

@@ -6,7 +6,11 @@ function NavBar(){
     return (
 
         <div>
-            NavBar
+            <nav>
+                <NavLink to="/xmas-cards">Home</NavLink>
+                <NavLink to="/xmas-cards/cardlist">Cards</NavLink>
+            </nav>
+            
         </div>
     )
 
