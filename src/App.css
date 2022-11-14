@@ -1,9 +1,14 @@
 .App {
   text-align: center;
 }
+body{
+  -ms-overflow-style: none; /* for Internet Explorer, Edge */
+  scrollbar-width: none; /* for Firefox */
+  overflow-x: hidden; 
+}
 
 #game{
-  width: 1000px;
+  width: 1400px;
   height: 600px;
   border: 1px solid black;
   margin:0%;
@@ -12,18 +17,35 @@
 #character{
   width: 256px;
   height: 400px;
-  position: relative;
-  top: 330px; 
-  scale:.35;
-  left:0px;
-  
+  position: absolute;
+  top: 300px; 
+  scale:.5;
+  left:125px; 
 }
+#connie{
+  width: 256px;
+  height: 380px;
+  position: absolute;
+  top: 285px; 
+  scale:.60;
+  left:75px; 
+}
+#penny{
+  width: 256px;
+  height: 380px;
+  position: absolute;
+  top: 305px; 
+  scale:.5;
+  left:0px; 
+}
+
+
 #hat{
   width: 256px;
   height: 400px;
   position: absolute;
   top:200px; 
-  scale:.35;
+  scale:.5;
   left:400px;
   background: url("./hat.png");
 
@@ -35,10 +57,20 @@
   from { background-position: 0px; }
   to { background-position: 2560px; }
 }
+@keyframes cat-run {
+  from { background-position: 0px; }
+  to { background-position: 1024px; }
+}
 
 .run{
-  animation: sprite-run 500ms linear;
+  animation: sprite-run 800ms linear;
   animation-timing-function: steps(10);
+  animation-iteration-count: infinite;
+}
+
+.run-cat{
+  animation: cat-run 400ms linear;
+  animation-timing-function: steps(4);
   animation-iteration-count: infinite;
 }
 
@@ -63,7 +95,37 @@
 }
 
 .background-stand{
-  background: url("./xmas-stand-no-hat.png");
+  background: url("./me-stand.png");
+}
+
+.connie-run{
+  background: url("./connie-run-no-hat.png");
+}
+.connie-run-hat{
+  background: url("./connie-run-hat.png");
+}
+
+.connie-stand{
+  background: url("./connie-stand-no-hat.png");
+}
+
+.connie-stand-hat{
+  background: url("./connie-stand-with-hat.png");
+}
+.penny-run{
+  background: url("./penny-run-no-hat.png");
+}
+.penny-run-hat{
+  background: url("./penny-run-with-hat.png");
+}
+
+
+.penny-stand{
+  background: url("./penny-stand-no-hat.png");
+}
+
+.penny-stand-hat{
+  background: url("./penny-stand-with-hat.png");
 }
 
 
@@ -77,7 +139,7 @@
 }
 
 .background-stand-hat{
-  background: url("./xmas-stand-hat.png");
+  background: url("./me-stand-hat.png");
 }
 
 .hidden{
