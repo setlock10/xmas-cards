@@ -7,9 +7,11 @@ function Greeting(){
     let characterLeft= 0
     let characterTop = 0
     let moveTimer = 0
-    let hasHat = false
+    //let hatCheck=null
+    //let hasHat = false
     
     const [pressed, setPressed] = useState(false);
+    const [hasHat, setHasHat] = useState(false);
 
 
 
@@ -17,34 +19,108 @@ function Greeting(){
     const refHat = useRef(null);
     const refPenny = useRef(null);
     const refConnie = useRef(null);
+    const hatCheck = useRef(0);
+   // const moveTimer = useRef(0);
 
     useEffect(()=>{
         refCharacter.current.focus();
         refHat.current.focus();
         refConnie.current.focus();
         refPenny.current.focus();
+        //moveTimer.current.focus();
        
 
         document.addEventListener("keydown",keydown)
         document.addEventListener("keyup",keyup)
 
+        hatCheck.current = setInterval(checkHat, 10);
+
+
     },[]);
 
 
     function keydown(e){
-        // console.log("hey")
-       
-        // refCharacter.current.classList.add("background-stand-hat");
-        // refCharacter.current.style.left=600+'px';
-
+        
         //pressed===true
-       // if(e.code==="ArrowRight")run(1)
-       // if(e.code==="ArrowLeft")run(-1)
+        if(e.code==="ArrowRight")run(1)
+        if(e.code==="ArrowLeft")run(-1)
         if(e.code==="Space")jump()
         
     }
     function keyup(e){
+        clearInterval(moveTimer)
+        moveTimer=0
+        //debugger
+        if(e.code==="ArrowRight"){
+            clearInterval(moveTimer.current)
+    
+             refCharacter.current.classList.remove("run");
+             refConnie.current.classList.remove("run-cat");
+             refPenny.current.classList.remove("run-cat");
+             
+    
+            // character.classList.remove("background-run")
+            //  character.classList.add("background-stand")
+            (hasHat)?(refCharacter.current.classList.remove("background-run-hat")):(refCharacter.current.classList.remove("background-run"));
+            (hasHat)?(refCharacter.current.classList.add("background-stand-hat")):(refCharacter.current.classList.add("background-stand"));
+            (hasHat)?(refConnie.current.classList.remove("connie-run-hat")):(refConnie.current.classList.remove("connie-run"));
+            (hasHat)?(refConnie.current.classList.add("connie-stand-hat")):(refConnie.current.classList.add("connie-stand"));
+            (hasHat)?(refPenny.current.classList.remove("penny-run-hat")):(refPenny.current.classList.remove("penny-run"));
+            (hasHat)?(refPenny.current.classList.add("penny-stand-hat")):(refPenny.current.classList.add("penny-stand"));
+      
+             setPressed(false);
+        }
+    
+        if(e.code==="ArrowLeft"){
+            clearInterval(moveTimer.current)
+            refCharacter.current.classList.remove("run");
+            refConnie.current.classList.remove("run-cat");
+            refPenny.current.classList.remove("run-cat");
+            (hasHat)?(refCharacter.current.classList.remove("background-run-hat")):(refCharacter.current.classList.remove("background-run"));
+            (hasHat)?(refCharacter.current.classList.add("background-stand-hat")):(refCharacter.current.classList.add("background-stand"));
+            (hasHat)?(refConnie.current.classList.remove("connie-run-hat")):(refConnie.current.classList.remove("connie-run"));
+            (hasHat)?(refConnie.current.classList.add("connie-stand-hat")):(refConnie.current.classList.add("connie-stand"));
+            (hasHat)?(refPenny.current.classList.remove("penny-run-hat")):(refPenny.current.classList.remove("penny-run"));
+            (hasHat)?(refPenny.current.classList.add("penny-stand-hat")):(refPenny.current.classList.add("penny-stand"));
+      
+            // character.classList.remove("background-run")
+            // character.classList.add("background-stand")
+            setPressed(false);
+        }
+    }
 
+    function run(direction){
+
+        if(pressed===true){return;}
+    
+        /* Getting the current location of the character */
+        characterLeft = parseInt(window.getComputedStyle(refCharacter.current).getPropertyValue("left"));
+        console.log(characterLeft)
+       
+        /* Setting the direction of the character */
+        direction<0 ? (refCharacter.current.classList.add("flip")) : (refCharacter.current.classList.remove("flip"));
+        direction<0 ? (refConnie.current.classList.add("flip")) : (refConnie.current.classList.remove("flip"));
+        direction<0 ? (refPenny.current.classList.add("flip")) : (refPenny.current.classList.remove("flip"));
+      
+        (hasHat)?(refCharacter.current.classList.remove("background-stand-hat")):(refCharacter.current.classList.remove("background-stand"));
+        (hasHat)?(refCharacter.current.classList.add("background-run-hat")):(refCharacter.current.classList.add("background-run"));
+        (hasHat)?(refConnie.current.classList.remove("connie-stand-hat")):(refConnie.current.classList.remove("connie-stand"));
+        (hasHat)?(refConnie.current.classList.add("connie-run-hat")):(refConnie.current.classList.add("connie-run"));
+        (hasHat)?(refPenny.current.classList.remove("penny-stand-hat")):(refPenny.current.classList.remove("penny-stand"));
+        (hasHat)?(refPenny.current.classList.add("penny-run-hat")):(refPenny.current.classList.add("penny-run"));
+    
+        
+        //character.classList.remove("background-stand");
+        //character.classList.add("background-run");
+        refCharacter.current.classList.add("run");
+        refPenny.current.classList.add("run-cat")
+        refConnie.current.classList.add("run-cat")
+        setPressed(true)
+        console.log(moveTimer)
+        move(direction)
+        if (moveTimer===0)
+            moveTimer=setInterval(move,10,direction)
+        console.log(moveTimer)
     }
  
     function jump(){
@@ -76,15 +152,41 @@ function Greeting(){
 
      function move(direction){
         direction<0 ? (characterLeft-=2) : (characterLeft+=2)
+        //if(pressed===true){return;}
     
         /* Defining our movement boundaries */
         if (characterLeft>=800){characterLeft=800} 
         if (characterLeft<0){characterLeft=0} 
     
-        refCharacter.currentstyle.left=characterLeft+'px';
-        refPenny.currentstyle.left=characterLeft+((-145)*direction)+'px';
-        refConnie.current.left=characterLeft+((-60)*direction)+'px';
+        refCharacter.current.style.left=characterLeft+'px';
+        refPenny.current.style.left=characterLeft+((-145)*direction)+'px';
+        refConnie.current.style.left=characterLeft+((-60)*direction)+'px';
     }
+
+    function checkHat(){
+
+        characterLeft = parseInt(window.getComputedStyle(refCharacter.current).getPropertyValue("left"));
+        characterTop = parseInt(window.getComputedStyle(refCharacter.current).getPropertyValue("top"));
+        //console.log(characterTop)
+    
+        if((characterTop<250)&&((characterLeft>330)&&(characterLeft<470))){
+            //console.log("true");
+            setHasHat(true);
+    
+            refCharacter.current.classList.add("background-run-hat");
+            refConnie.current.classList.add("connie-run-hat");
+            refPenny.current.classList.add("penny-run-hat");
+    
+            clearInterval(hatCheck.current);
+            refHat.current.classList.add("hidden")
+    
+    
+    
+    
+        }   
+    
+    }
+    
     
      
 
