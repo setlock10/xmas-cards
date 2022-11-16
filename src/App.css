@@ -1,5 +1,14 @@
 .App {
   text-align: center;
+  font-family: VT323;
+  font-size: 30px;
+  color: #00593a;
+
+}
+
+@font-face{
+  font-family: VT323;
+  src: url(VT323-Regular.ttf)
 }
 body{
   -ms-overflow-style: none; /* for Internet Explorer, Edge */

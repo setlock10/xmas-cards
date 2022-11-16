@@ -8,10 +8,10 @@ function Greeting(){
     let characterTop = 0
     let moveTimer = 0
     //let hatCheck=null
-    //let hasHat = false
+    let hasHat = false
     
     const [pressed, setPressed] = useState(false);
-    const [hasHat, setHasHat] = useState(false);
+    //const [hasHat, setHasHat] = useState(false);
 
 
 
@@ -19,6 +19,7 @@ function Greeting(){
     const refHat = useRef(null);
     const refPenny = useRef(null);
     const refConnie = useRef(null);
+    const refMessage = useRef(null);
     const hatCheck = useRef(0);
    // const moveTimer = useRef(0);
 
@@ -27,17 +28,33 @@ function Greeting(){
         refHat.current.focus();
         refConnie.current.focus();
         refPenny.current.focus();
-        //moveTimer.current.focus();
+        refMessage.current.focus();
        
 
         document.addEventListener("keydown",keydown)
         document.addEventListener("keyup",keyup)
 
         hatCheck.current = setInterval(checkHat, 10);
+        refCharacter.current.classList.add("background-stand")
+        refHat.current.classList.add("hidden")
+
+        setTimeout(renderScene,1000)
+        
 
 
     },[]);
 
+
+    function renderScene(){
+        refMessage.current.innerHTML="Use Arrow Keys <-  -> to Move <br /> and Spacebar to Jump"
+        setTimeout(renderHat,3000)
+    
+    }
+
+    function renderHat(){
+        refMessage.current.innerHTML="<br /> Get In the Holiday Spirit"
+        refHat.current.classList.remove("hidden")
+    }
 
     function keydown(e){
         
@@ -48,12 +65,12 @@ function Greeting(){
         
     }
     function keyup(e){
-        clearInterval(moveTimer)
-        moveTimer=0
-        //debugger
+         //debugger
         if(e.code==="ArrowRight"){
-            clearInterval(moveTimer.current)
-    
+            //clearInterval(moveTimer.current)
+            clearInterval(moveTimer)
+            moveTimer=0
+      
              refCharacter.current.classList.remove("run");
              refConnie.current.classList.remove("run-cat");
              refPenny.current.classList.remove("run-cat");
@@ -61,27 +78,64 @@ function Greeting(){
     
             // character.classList.remove("background-run")
             //  character.classList.add("background-stand")
-            (hasHat)?(refCharacter.current.classList.remove("background-run-hat")):(refCharacter.current.classList.remove("background-run"));
-            (hasHat)?(refCharacter.current.classList.add("background-stand-hat")):(refCharacter.current.classList.add("background-stand"));
-            (hasHat)?(refConnie.current.classList.remove("connie-run-hat")):(refConnie.current.classList.remove("connie-run"));
-            (hasHat)?(refConnie.current.classList.add("connie-stand-hat")):(refConnie.current.classList.add("connie-stand"));
-            (hasHat)?(refPenny.current.classList.remove("penny-run-hat")):(refPenny.current.classList.remove("penny-run"));
-            (hasHat)?(refPenny.current.classList.add("penny-stand-hat")):(refPenny.current.classList.add("penny-stand"));
-      
+           
+            // (hasHat)?(refCharacter.current.classList.remove("background-run-hat")):(refCharacter.current.classList.remove("background-run"));
+            // (hasHat)?(refCharacter.current.classList.add("background-stand-hat")):(refCharacter.current.classList.add("background-stand"));
+            // (hasHat)?(refConnie.current.classList.remove("connie-run-hat")):(refConnie.current.classList.remove("connie-run"));
+            // (hasHat)?(refConnie.current.classList.add("connie-stand-hat")):(refConnie.current.classList.add("connie-stand"));
+           // refConnie.current.classList.remove("connie-run-hat")
+           // refPenny.current.classList.remove("penny-run-hat")
+            //if(refCharacter.current.classList==="background-run-hat")
+            
+
+            if (hasHat){
+                refPenny.current.classList.remove("penny-run-hat")
+                refPenny.current.classList.add("penny-stand-hat")
+                refCharacter.current.classList.remove("background-run-hat")
+                refCharacter.current.classList.add("background-stand-hat")
+                refConnie.current.classList.remove("connie-run-hat")
+                refConnie.current.classList.add("connie-stand-hat")
+                
+            }
+            else{
+                refPenny.current.classList.remove("penny-run")
+                refPenny.current.classList.add("penny-stand")
+                refCharacter.current.classList.remove("background-run")
+                refCharacter.current.classList.add("background-stand")
+                refConnie.current.classList.remove("connie-run")
+                refConnie.current.classList.add("connie-stand")
+            }
+
+            //(hasHat)?(refPenny.current.classList.remove("penny-run-hat")):(refPenny.current.classList.remove("penny-run"));
+            //(hasHat)?(refPenny.current.classList.add("penny-stand-hat")):(refPenny.current.classList.add("penny-stand"));
+            //console.log(refPenny.current)
              setPressed(false);
         }
     
         if(e.code==="ArrowLeft"){
-            clearInterval(moveTimer.current)
+            // clearInterval(moveTimer.current)
+            clearInterval(moveTimer)
+            moveTimer=0
+      
             refCharacter.current.classList.remove("run");
             refConnie.current.classList.remove("run-cat");
             refPenny.current.classList.remove("run-cat");
-            (hasHat)?(refCharacter.current.classList.remove("background-run-hat")):(refCharacter.current.classList.remove("background-run"));
-            (hasHat)?(refCharacter.current.classList.add("background-stand-hat")):(refCharacter.current.classList.add("background-stand"));
-            (hasHat)?(refConnie.current.classList.remove("connie-run-hat")):(refConnie.current.classList.remove("connie-run"));
-            (hasHat)?(refConnie.current.classList.add("connie-stand-hat")):(refConnie.current.classList.add("connie-stand"));
-            (hasHat)?(refPenny.current.classList.remove("penny-run-hat")):(refPenny.current.classList.remove("penny-run"));
-            (hasHat)?(refPenny.current.classList.add("penny-stand-hat")):(refPenny.current.classList.add("penny-stand"));
+            if (hasHat){
+                refPenny.current.classList.remove("penny-run-hat")
+                refPenny.current.classList.add("penny-stand-hat")
+                refCharacter.current.classList.remove("background-run-hat")
+                refCharacter.current.classList.add("background-stand-hat")
+                refConnie.current.classList.remove("connie-run-hat")
+                refConnie.current.classList.add("connie-stand-hat")
+            }
+            else{
+                refPenny.current.classList.remove("penny-run")
+                refPenny.current.classList.add("penny-stand")
+                refCharacter.current.classList.remove("background-run")
+                refCharacter.current.classList.add("background-stand")
+                refConnie.current.classList.remove("connie-run")
+                refConnie.current.classList.add("connie-stand")
+            }
       
             // character.classList.remove("background-run")
             // character.classList.add("background-stand")
@@ -95,7 +149,7 @@ function Greeting(){
     
         /* Getting the current location of the character */
         characterLeft = parseInt(window.getComputedStyle(refCharacter.current).getPropertyValue("left"));
-        console.log(characterLeft)
+        //console.log(characterLeft)
        
         /* Setting the direction of the character */
         direction<0 ? (refCharacter.current.classList.add("flip")) : (refCharacter.current.classList.remove("flip"));
@@ -116,11 +170,11 @@ function Greeting(){
         refPenny.current.classList.add("run-cat")
         refConnie.current.classList.add("run-cat")
         setPressed(true)
-        console.log(moveTimer)
+        //console.log(moveTimer)
         move(direction)
         if (moveTimer===0)
             moveTimer=setInterval(move,10,direction)
-        console.log(moveTimer)
+        //console.log(moveTimer)
     }
  
     function jump(){
@@ -130,12 +184,16 @@ function Greeting(){
         //console.log(hasHat);
      
         (hasHat)?(refCharacter.current.classList.add("animate-jump-hat")):(refCharacter.current.classList.add("animate-jump"));
+
+       
     
         if(hasHat){
-            refCharacter.current.classList.add("animate-jump-hat")
+            refCharacter.current.classList.remove("background-stand-hat")
+            refCharacter.current.classList.add("background-run-hat")
         }
         else{
-        //    character.classList.add("background-run");
+            refCharacter.current.classList.remove("background-stand")
+            refCharacter.current.classList.add("background-run")
         }
      
     
@@ -147,6 +205,16 @@ function Greeting(){
         // (hasHat)?(character.classList.remove("animate-jump-hat")):(character.classList.remove("animate-jump"));
          refCharacter.current.classList.remove("animate-jump");
          refCharacter.current.classList.remove("animate-jump-hat")
+        // refCharacter.current.classList.remove("background-run")
+        // if(hasHat){
+        //     refCharacter.current.classList.remove("background-run-hat")
+        //     refCharacter.current.classList.add("background-stand-hat")
+        // }
+        // else{
+        //     refCharacter.current.classList.remove("background-run")
+        //     refCharacter.current.classList.add("background-stand")
+        // }
+     
      
      }
 
@@ -155,7 +223,7 @@ function Greeting(){
         //if(pressed===true){return;}
     
         /* Defining our movement boundaries */
-        if (characterLeft>=800){characterLeft=800} 
+        if (characterLeft>=1100){characterLeft=1100} 
         if (characterLeft<0){characterLeft=0} 
     
         refCharacter.current.style.left=characterLeft+'px';
@@ -171,15 +239,30 @@ function Greeting(){
     
         if((characterTop<250)&&((characterLeft>330)&&(characterLeft<470))){
             //console.log("true");
-            setHasHat(true);
-    
-            refCharacter.current.classList.add("background-run-hat");
-            refConnie.current.classList.add("connie-run-hat");
-            refPenny.current.classList.add("penny-run-hat");
+            //setHasHat(true);
+
+            hasHat=true;
+            var list = refCharacter.current.classList
+
+
+            console.log(list)
+            if(refCharacter.current.classList[1]!=='run'){
+            //if((refCharacter.current.classList[1]!=='run')||(refCharacter.current.classList[2]!=='run')){
+                refCharacter.current.classList.add("background-stand-hat")
+                refConnie.current.classList.remove("connie-stand")
+                refPenny.current.classList.remove("penny-stand")
+                refConnie.current.classList.add("connie-stand-hat")
+                refPenny.current.classList.add("penny-stand-hat")
+            }
+
+            // refCharacter.current.classList.remove("background-stand");
+            // refCharacter.current.classList.add("background-run-hat");
+            // refConnie.current.classList.add("connie-run-hat");
+            // refPenny.current.classList.add("penny-run-hat");
     
             clearInterval(hatCheck.current);
             refHat.current.classList.add("hidden")
-    
+            //debugger
     
     
     
@@ -196,8 +279,9 @@ function Greeting(){
     return (
         <div  id="greeting">
             <div id="game">
+                <h1 ref={refMessage} id="message"> </h1>
                 <div ref={refHat} id="hat"></div>
-                <div  ref={refCharacter}  id="character" className="background-stand"></div>
+                <div  ref={refCharacter}  id="character" ></div>
                 <div ref={refConnie} id="connie" className="connie-stand"></div>
                 <div ref={refPenny} id="penny" className="penny-stand"></div>
             </div>
