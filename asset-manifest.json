@@ -1,10 +1,11 @@
 {
   "files": {
-    "main.css": "/xmas-cards/static/css/main.861ae143.css",
-    "main.js": "/xmas-cards/static/js/main.f9984306.js",
+    "main.css": "/xmas-cards/static/css/main.d6b11d41.css",
+    "main.js": "/xmas-cards/static/js/main.91a7f8f1.js",
     "static/js/787.b24f7f7f.chunk.js": "/xmas-cards/static/js/787.b24f7f7f.chunk.js",
     "static/media/xmas-with-hat.png": "/xmas-cards/static/media/xmas-with-hat.8540c96c57d84f5b3884.png",
     "static/media/xmas-no-hat.png": "/xmas-cards/static/media/xmas-no-hat.77163c200b194877a749.png",
+    "static/media/VT323-Regular.ttf": "/xmas-cards/static/media/VT323-Regular.2bc43ad8eb2f60b39f27.ttf",
     "static/media/connie-run-hat.png": "/xmas-cards/static/media/connie-run-hat.2394469a982346ea8029.png",
     "static/media/connie-run-no-hat.png": "/xmas-cards/static/media/connie-run-no-hat.c3d7113d713029e803e4.png",
     "static/media/penny-run-with-hat.png": "/xmas-cards/static/media/penny-run-with-hat.60cd894bf5aaca68cafe.png",
@@ -12,12 +13,12 @@
     "static/media/me-stand-hat.png": "/xmas-cards/static/media/me-stand-hat.afdc4261204cf6b0b92e.png",
     "static/media/me-stand.png": "/xmas-cards/static/media/me-stand.c8b820ace146e58ea529.png",
     "index.html": "/xmas-cards/index.html",
-    "main.861ae143.css.map": "/xmas-cards/static/css/main.861ae143.css.map",
-    "main.f9984306.js.map": "/xmas-cards/static/js/main.f9984306.js.map",
+    "main.d6b11d41.css.map": "/xmas-cards/static/css/main.d6b11d41.css.map",
+    "main.91a7f8f1.js.map": "/xmas-cards/static/js/main.91a7f8f1.js.map",
     "787.b24f7f7f.chunk.js.map": "/xmas-cards/static/js/787.b24f7f7f.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.861ae143.css",
-    "static/js/main.f9984306.js"
+    "static/css/main.d6b11d41.css",
+    "static/js/main.91a7f8f1.js"
   ]
 }
