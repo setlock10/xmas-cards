@@ -55,10 +55,23 @@ body{
   position: absolute;
   top:200px; 
   scale:.5;
-  left:400px;
+  left:600px;
   background: url("./hat.png");
 
   
+}
+
+#tree{
+  width: 256px;
+  height: 400px;
+  position: absolute;
+
+}
+.tree-star{
+  background: url("./star.png");
+  top:50px;
+  left:50px;
+
 }
 
 
@@ -86,6 +99,16 @@ body{
 .flip{
   transform: scaleX(-1);
 }
+
+@keyframes blink{
+  0%{opacity: 0%;}
+  100%{opacity: 100%;}
+}
+
+.animate-blink{
+  animation: blink 1000ms infinite;
+}
+
 
 @keyframes jump{
   0%{top: 150px;}
