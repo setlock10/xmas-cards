@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/xmas-cards/static/css/main.b92df78d.css",
-    "main.js": "/xmas-cards/static/js/main.82d4fd7e.js",
+    "main.js": "/xmas-cards/static/js/main.bce3c463.js",
     "static/js/787.b24f7f7f.chunk.js": "/xmas-cards/static/js/787.b24f7f7f.chunk.js",
     "static/media/xmas-with-hat.png": "/xmas-cards/static/media/xmas-with-hat.8540c96c57d84f5b3884.png",
     "static/media/xmas-no-hat.png": "/xmas-cards/static/media/xmas-no-hat.77163c200b194877a749.png",
@@ -16,11 +16,11 @@
     "static/media/tree.png": "/xmas-cards/static/media/tree.d0193ce2c81b8b5f8a4d.png",
     "index.html": "/xmas-cards/index.html",
     "main.b92df78d.css.map": "/xmas-cards/static/css/main.b92df78d.css.map",
-    "main.82d4fd7e.js.map": "/xmas-cards/static/js/main.82d4fd7e.js.map",
+    "main.bce3c463.js.map": "/xmas-cards/static/js/main.bce3c463.js.map",
     "787.b24f7f7f.chunk.js.map": "/xmas-cards/static/js/787.b24f7f7f.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.b92df78d.css",
-    "static/js/main.82d4fd7e.js"
+    "static/js/main.bce3c463.js"
   ]
 }
