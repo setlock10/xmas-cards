@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/xmas-cards/static/css/main.29b68f65.css",
-    "main.js": "/xmas-cards/static/js/main.0de6acb5.js",
+    "main.css": "/xmas-cards/static/css/main.7efa4db7.css",
+    "main.js": "/xmas-cards/static/js/main.3e07578c.js",
     "static/js/787.b24f7f7f.chunk.js": "/xmas-cards/static/js/787.b24f7f7f.chunk.js",
     "static/media/xmas-with-hat.png": "/xmas-cards/static/media/xmas-with-hat.8540c96c57d84f5b3884.png",
     "static/media/xmas-no-hat.png": "/xmas-cards/static/media/xmas-no-hat.77163c200b194877a749.png",
@@ -15,12 +15,12 @@
     "static/media/me-stand.png": "/xmas-cards/static/media/me-stand.c8b820ace146e58ea529.png",
     "static/media/tree.png": "/xmas-cards/static/media/tree.d0193ce2c81b8b5f8a4d.png",
     "index.html": "/xmas-cards/index.html",
-    "main.29b68f65.css.map": "/xmas-cards/static/css/main.29b68f65.css.map",
-    "main.0de6acb5.js.map": "/xmas-cards/static/js/main.0de6acb5.js.map",
+    "main.7efa4db7.css.map": "/xmas-cards/static/css/main.7efa4db7.css.map",
+    "main.3e07578c.js.map": "/xmas-cards/static/js/main.3e07578c.js.map",
     "787.b24f7f7f.chunk.js.map": "/xmas-cards/static/js/787.b24f7f7f.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.29b68f65.css",
-    "static/js/main.0de6acb5.js"
+    "static/css/main.7efa4db7.css",
+    "static/js/main.3e07578c.js"
   ]
 }
